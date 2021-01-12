@@ -2,6 +2,11 @@
 
 This application allows users to post information about music topics.
 
+User Story:
+AS A music lover
+I WANT to see and share images, music videos and band info
+SO THAT I can learn about new music, talk about bands I love and make friends that share my music interest
+
 This application uses a Node and Express server
 
 This application uses Handlebars.js as the template engine
@@ -26,3 +31,11 @@ This application has a folder structure that meets the MVC paradigm
 This application meets good quality coding standards (indentation, scoping, naming)
 
 This application protects API keys in Node with environment variables
+
+Collaborators:
+
+- Violet Pickard
+- Gregory Stinson
+- William Tham
+- Nicholas Werner
+- Paolo Yap
