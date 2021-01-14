@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "Beeke@per7!",
-    "database": "music_DB",
+    "database": "music_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

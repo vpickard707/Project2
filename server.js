@@ -1,4 +1,5 @@
 // Requiring necessary npm packages
+require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
 const exbhbs = require("express-handlebars");
@@ -7,7 +8,14 @@ const passport = require("./config/passport");
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
-const db = require("./models");
+const models = require("./models");
+const music_db = require("music_db");
+// dotenv info
+db.connect({
+  host: "localhost",
+  username: "root",
+  password: process.env.DB_PASS,
+});
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
@@ -40,3 +48,5 @@ db.sequelize.sync().then(() => {
     );
   });
 });
+
+// for config.json check to see process.env.DB_PASS,

@@ -1,1 +1,1 @@
-CREATE DATABASE music_DB;
+CREATE DATABASE music_db;
