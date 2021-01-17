@@ -1,7 +1,7 @@
 $(document).ready(() => {
   // blogContainer holds all of our posts
   const blogContainer = $(".blog-container");
-
+  
   // Variable to hold our posts
   let posts;
 
@@ -51,16 +51,10 @@ $(document).ready(() => {
     newPostCard.addClass("card");
     const newPostCardHeading = $("<div>");
     newPostCardHeading.addClass("card-header");
-    const deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
-    const editBtn = $("<button>");
-    editBtn.text("EDIT");
-    editBtn.addClass("edit btn btn-info");
     const newPostTitle = $("<h2>");
     const newPostDate = $("<small>");
     const newPostAuthor = $("<h5>");
-    newPostAuthor.text("Written by: " + post.Author.name);
+    newPostAuthor.text("Written by: " + post.user.name);
     newPostAuthor.css({
       float: "right",
       color: "blue",
@@ -73,8 +67,6 @@ $(document).ready(() => {
     newPostBody.text(post.body);
     newPostDate.text(formattedDate);
     newPostTitle.append(newPostDate);
-    // newPostCardHeading.append(deleteBtn);
-    // newPostCardHeading.append(editBtn);
     newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostAuthor);
     newPostCardBody.append(newPostBody);
