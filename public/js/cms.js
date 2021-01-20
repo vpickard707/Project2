@@ -3,13 +3,13 @@ $(document).ready(() => {
   const bodyInput = $("#body");
   const titleInput = $("#title");
   const cmsForm = $("#cms");
-  const authorSelect = $("#author");
+  const userSelect = $("#user");
   // Adding an event listener for when the form is submitted
   $(cmsForm).on("submit", handleFormSubmit);
   // Gets the part of the url that comes after the "?" (which we have if we're updating a post)
   const url = window.location.search;
   let postId;
-  //   let authorId;
+  let userId = $(this).attr("#data-id");
   // Sets a flag for whether or not we're updating a post to be false initially
   let updating = false;
 
@@ -20,8 +20,8 @@ $(document).ready(() => {
     getPostData(postId, "post");
   }
   // Otherwise if we have an author_id in our url, preset the author select box to be our Author
-  else if (url.indexOf("?author_id=") !== -1) {
-    authorId = url.split("=")[1];
+  else if (url.indexOf("?user_id=") !== -1) {
+    userId = url.split("=")[1];
   }
 
   // Getting the authors, and their posts
@@ -40,7 +40,7 @@ $(document).ready(() => {
     const newPost = {
       title: titleInput.val().trim(),
       body: bodyInput.val().trim(),
-      AuthorId: authorSelect.val()
+      userId: authorSelect.val()
     };
 
     // If we're updating a post run updatePost to update a post
@@ -75,11 +75,11 @@ $(document).ready(() => {
     }
     $.get(queryUrl, (data) => {
       if (data) {
-        console.log(data.AuthorId || data.id);
+        console.log(data.userId || data.id);
         // If this post exists, prefill our cms forms with its data
         titleInput.val(data.title);
         bodyInput.val(data.body);
-        authorId = data.AuthorId || data.id;
+        userId = data.userId || data.id;
         // If we have a post with this id, set a flag for us to know to update the post
         // when we hit submit
         updating = true;
@@ -102,11 +102,11 @@ $(document).ready(() => {
     for (let i = 0; i < data.length; i++) {
       rowsToAdd.push(createUserRow(data[i]));
     }
-    authorSelect.empty();
+    userSelect.empty();
     console.log(rowsToAdd);
-    console.log(authorSelect);
-    authorSelect.append(rowsToAdd);
-    authorSelect.val(authorId);
+    console.log(userSelect);
+    userSelect.append(rowsToAdd);
+    userSelect.val(userId);
   }
 
   // Update a given post, bring user to the blog page when done

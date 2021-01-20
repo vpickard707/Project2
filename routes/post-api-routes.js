@@ -14,7 +14,7 @@ module.exports = function(app) {
     // In this case, just db.Author
     db.Post.findAll({
       where: query,
-      include: [db.Author],
+      include: [db.User],
     }).then((dbPost) => {
       res.json(dbPost);
     });
@@ -28,7 +28,7 @@ module.exports = function(app) {
         where: {
           id: req.params.id
         },
-        include: [db.Author]
+        include: [db.User]
       }).then((dbPost) => {
         res.json(dbPost);
       });
