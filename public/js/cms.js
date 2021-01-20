@@ -9,7 +9,7 @@ $(document).ready(() => {
   // Gets the part of the url that comes after the "?" (which we have if we're updating a post)
   const url = window.location.search;
   let postId;
-  let authorId;
+  //   let authorId;
   // Sets a flag for whether or not we're updating a post to be false initially
   let updating = false;
 
@@ -25,7 +25,7 @@ $(document).ready(() => {
   }
 
   // Getting the authors, and their posts
-  getAuthors();
+    getAuthors();
 
   // A function for handling what happens when the form to create a new post is submitted
   function handleFormSubmit(event) {
@@ -40,7 +40,7 @@ $(document).ready(() => {
     const newPost = {
       title: titleInput.val().trim(),
       body: bodyInput.val().trim(),
-      AuthorId: authorSelect.val(),
+      AuthorId: authorSelect.val()
     };
 
     // If we're updating a post run updatePost to update a post
@@ -67,10 +67,10 @@ $(document).ready(() => {
       case "post":
         queryUrl = "/api/posts/" + id;
         break;
-      case "author":
+      case "user":
         queryUrl = "/api/authors/" + id;
         break;
-      default:
+        default:
         return;
     }
     $.get(queryUrl, (data) => {
@@ -87,20 +87,20 @@ $(document).ready(() => {
     });
   }
 
-  // A function to get Authors and then render our list of Authors
+  // A function to get Users and then render our list of Users
   function getAuthors() {
     $.get("/api/authors", renderAuthorList);
   }
   // Function to either render a list of authors, or if there are none, direct the user to the page
   // to create an author first
   function renderAuthorList(data) {
-    if (!data.length) {
-      window.location.href = "/authors";
-    }
+        if (!data.length) {
+          window.location.href = "/authors";
+        }
     $(".hidden").removeClass("hidden");
     const rowsToAdd = [];
     for (let i = 0; i < data.length; i++) {
-      rowsToAdd.push(createAuthorRow(data[i]));
+      rowsToAdd.push(createUserRow(data[i]));
     }
     authorSelect.empty();
     console.log(rowsToAdd);
