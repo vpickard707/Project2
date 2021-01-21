@@ -31,8 +31,7 @@ app.use(passport.session());
 // Requiring our routes
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
-require("./routes/post-api-routes.js")(app);
-require("./routes/author-api-routes.js")(app);
+
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
@@ -43,5 +42,3 @@ db.sequelize.sync().then(() => {
     );
   });
 });
-
-// for config.json check to see process.env.DB_PASS,
