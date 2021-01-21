@@ -32,4 +32,8 @@ module.exports = function(app) {
     res.render("blog", req.user);
   });
 
+  app.get("/homepage", isAuthenticated, (req, res) => {
+    res.render("homepage", req.user);
+  });
+
 };
