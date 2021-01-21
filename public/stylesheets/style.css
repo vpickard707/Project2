@@ -3,7 +3,7 @@ form.login {
   margin-top: 50px;
 }
 
-/* .navbar{ 
+.navbar{ 
   background-color: rgb(127, 197, 255);
 }
 
@@ -17,11 +17,11 @@ h2{
 
 h1{
   text-align: center;
-} */
+} 
 
 /* moving background */
 
-/* @keyframes move_wave {
+@keyframes move_wave {
   0% {
       transform: translateX(0) translateZ(0) scaleY(1)
   }
@@ -89,4 +89,4 @@ animation: move-wave 3s;
 }
 .waveAnimation .waveBottom {
   animation: move_wave 15s linear infinite;
-} */
+}
