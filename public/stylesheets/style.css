@@ -2,7 +2,9 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
-
+.btn{
+  color:rgb(29, 28, 23);
+}
 .navbar{ 
   background-color: rgb(127, 197, 255);
 }
