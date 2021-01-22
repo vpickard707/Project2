@@ -11,23 +11,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <h2 class="member-name">Welcome, {{username}}!</h2>
+            <h2 class="member-name">Welcome to {{username}}!'s RUCKUS Page</h2>
         </div>
-    </div>
-</div>
-<div class="card">
-    <div class="container">
-        <h1 class="text-center">ABOUT ME</h1>
-        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum mi 
-            sit amet augue tristique rhoncus. Nam luctus semper accumsan. Etiam ultrices suscipit turpis, 
-            in maximus nunc semper et. 
-            Maecenas non nisi sed metus feugiat facilisis. Cras ut nisi vitae sapien efficitur sodales. 
-            Morbi scelerisque, 
-            est vitae egestas mollis, 
-            ipsum libero lobortis mauris, pellentesque viverra tortor justo et ipsum. Phasellus 
-            condimentum pharetra elit, et rutrum libero aliquet quis. 
-            Donec vitae risus velit. Morbi mollis viverra massa in blandit. Donec eget venenatis velit, dapibus faucibus mi.
-        </h3>
     </div>
 </div>
 <div class="row mt-4">
@@ -37,9 +22,25 @@
     <div class="col-md-2">
         <a class="btn btn-light" href="/blog">Go to Blog</a>
     </div>
+    <div class="col-md-2">
+        <a class="btn btn-light" href="/biopage">Update Your Page</a>
+    </div>
         <div class="col-md-2">
         <a class="btn btn-light" href="/homepage">Go to Homepage</a>
     </div>
+</div>
+<div class="container">
+
+    {{#each biopage}}
+    <div class = "biopage">
+        <ul>
+            <li>My Favorite Bands: {{dataValues.favorite}} </li>
+            <li>Genres of Music I enjoy: {{dataValues.genres}} </li>
+            <li>Bands that I have seen in concert: {{dataValues.concert}} </li>
+            <li>About Me: {{dataValues.about}} </li>
+        </ul>
+    </div>
+    {{/each}}
 </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/members.js"></script>

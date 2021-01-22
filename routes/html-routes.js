@@ -1,5 +1,6 @@
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const db = require("../models");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
@@ -21,7 +22,14 @@ module.exports = function(app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, (req, res) => {
-    res.render("members", req.user);
+    db.Biopage.findAll({
+      where: {
+        userId: req.user.id,
+      },
+    }).then((biopage) => {
+      console.log(biopage);
+      res.render("members", { user: req.user, biopage });
+    });
   });
 
   app.get("/cms", isAuthenticated, (req, res) => {
@@ -36,4 +44,17 @@ module.exports = function(app) {
     res.render("homepage", req.user);
   });
 
+  app.get("/biopage", isAuthenticated, (req, res) => {
+    db.Biopage.findAll({
+      where: {
+        userId: req.user.id,
+      },
+    }).then((biopage) => {
+      if (biopage.length > 0) {
+        res.render("biopage", { user: req.user, hasBiopage: true });
+      } else {
+        res.render("biopage", { user: req.user, hasBiopage: false });
+      }
+    });
+  });
 };

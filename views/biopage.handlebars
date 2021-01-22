@@ -1,0 +1,69 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <h1>Ruckus</h1>
+            <a class="navbar-brand" href="/logout">
+                Logout
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h2 class="member-name">Welcome, {{user.username}}! Update your Biopage here.</h2>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-2">
+                <a class="btn btn-light" href="/members">Back to Member Page</a>
+            </div>
+        </div>
+        <div class="col-md-5 offset-md-3">
+            {{#unless hasBiopage}}
+            <form action="/biopage" method="POST">
+                <div class="form-group">
+                    <label for="title">What is your favorite band?</label>
+                    <input type="text" class="form-control" name="favorite">
+                    <br />
+                    <label for="title">What genres of music do you enjoy?</label>
+                    <input type="text" class="form-control" name="genres">
+                    <br />
+                    <label for="title">What bands have you seen in concert?</label>
+                    <input type="text" class="form-control" name="concert">
+                    <br />
+                    <label for="title">About you!</label>
+                    <input type="text" class="form-control" placeholder="Tell us about you!" name="about">
+                    <br />
+                    <button type="submit" class="btn btn-success submit btn-lg">Add</button>
+                </div>
+            </form>
+            {{/unless}}
+            {{#if hasBiopage}}
+            <form>
+                <div class="form-group" id="bioForm">
+                    <label for="title">What is your favorite band?</label>
+                    <input type="text" class="form-control" name="favorite" id="favorite">
+                    <br />
+                    <label for="title">What genres of music do you enjoy?</label>
+                    <input type="text" class="form-control" name="genres" id="genres">
+                    <br />
+                    <label for="title">What bands have you seen in concert?</label>
+                    <input type="text" class="form-control" name="concert" id="concert">
+                    <br />
+                    <label for="title">About you!</label>
+                    <input type="text" class="form-control" placeholder="Tell us about you!" name="about" id="about">
+                    <br />
+                    <button type="submit" class="btn btn-success submit btn-lg" id="update-biopage">Update</button>
+                </div>
+            </form>
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/biopage.js"></script>
