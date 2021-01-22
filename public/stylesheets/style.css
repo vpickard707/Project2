@@ -23,6 +23,11 @@ h2.member-name{
   left: 0%;
 }
 
+h1.logo{
+  left: 0%;
+  text-align: left;
+}
+
 /* moving background */
 
 @keyframes move_wave {
