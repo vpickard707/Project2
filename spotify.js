@@ -3,7 +3,7 @@ require("dotenv").config();
 // Add the following code to server.js:
 // Import the node-spotify-api NPM package
 
-//Import the API keys
+// Import the API keys
 // const keys = require("./keys.js");
 
 //Import the Axios npm package
