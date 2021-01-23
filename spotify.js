@@ -1,7 +1,9 @@
+require("dotenv").config();
+
 // Add the following code to server.js:
 // Import the node-spotify-api NPM package
 
-//Import the API keys
+// Import the API keys
 // const keys = require("./keys.js");
 
 //Import the Axios npm package
@@ -67,3 +69,8 @@
 // The GET request is sent to the /authorize endpoint of the Accounts service:
 
 // GET https://accounts.spotify.com/authorize
+// ============================================================================
+var client_id = process.env.CLIENT_ID; // Your client id
+var client_secret = process.env.CLIENT_SECRET; // Your secret
+var redirect_uri = "REDIRECT_URI"; // Your redirect uri
+console.log(client_id, client_secret);
