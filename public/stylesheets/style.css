@@ -2,7 +2,9 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
-
+.btn{
+  color:rgb(29, 28, 23);
+}
 .navbar{ 
   background-color: rgb(127, 197, 255);
 }
@@ -15,9 +17,27 @@ h2{
   color: rgb(43, 214, 226);
 }
 
+h3.about{
+  color:white;
+}
+
 h1{
   text-align: center;
 } 
+
+h2.member-name{
+  left: 0%;
+  text-align: left;
+}
+
+h1.logo{
+  left:0%;
+  text-align: left;
+}
+
+ul.music-info{
+  color: white;
+}
 
 /* moving background */
 
