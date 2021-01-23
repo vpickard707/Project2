@@ -2,40 +2,40 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
-.btn{
-  color:rgb(29, 28, 23);
+.btn {
+  color: rgb(29, 28, 23);
 }
-.navbar{ 
+.navbar {
   background-color: rgb(127, 197, 255);
 }
 
-body{
+body {
   background-color: black;
 }
 
-h2{
+h2 {
   color: rgb(43, 214, 226);
 }
 
-h3.about{
-  color:white;
+h3.about {
+  color: white;
 }
 
-h1{
+/* h1{
   text-align: center;
-} 
+}  */
 
-h2.member-name{
+h2.member-name {
   left: 0%;
   text-align: left;
 }
 
-h1.logo{
-  left:0%;
+h1.logo {
+  left: 0%;
   text-align: left;
 }
 
-ul.music-info{
+ul.music-info {
   color: white;
 }
 
@@ -43,13 +43,13 @@ ul.music-info{
 
 @keyframes move_wave {
   0% {
-      transform: translateX(0) translateZ(0) scaleY(1)
+    transform: translateX(0) translateZ(0) scaleY(1);
   }
   50% {
-      transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    transform: translateX(-25%) translateZ(0) scaleY(0.55);
   }
   100% {
-      transform: translateX(-50%) translateZ(0) scaleY(1)
+    transform: translateX(-50%) translateZ(0) scaleY(1);
   }
 }
 .waveWrapper {
@@ -93,10 +93,10 @@ ul.music-info{
   background-size: 50% 100px;
 }
 .waveAnimation .waveTop {
-animation: move-wave 3s;
- -webkit-animation: move-wave 3s;
- -webkit-animation-delay: 1s;
- animation-delay: 1s;
+  animation: move-wave 3s;
+  -webkit-animation: move-wave 3s;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
 }
 .waveMiddle {
   background-size: 50% 120px;

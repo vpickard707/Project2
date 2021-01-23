@@ -1,6 +1,14 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
+            {{!-- logo --}}
+            <div class="navbar-header">
+                <div class="nav-wrapper container">
+                    <div id="logo-container" class="brand-logo"><img width="75" height="auto" src="still.png">
+                    </div>
+                </div>
+
+            </div>
             <h1 class="logo"><a href="/members">Ruckus</a></h1>
             <a class="btn btn-light" href="/homepage">Go to Homepage</a>
             <a class="btn btn-light" href="/cms">New Post</a>
@@ -19,18 +27,18 @@
 </div>
 <div class="container">
     {{#each biopage}}
-    <div class = "biopage">
-      <h2 class="about-me">About Me:</h2>
-      <h3 class="about">{{dataValues.about}} </h3>
-      <br>
-      <h2 class="interests">Interests</h2>
+    <div class="biopage">
+        <h2 class="about-me">About Me:</h2>
+        <h3 class="about">{{dataValues.about}} </h3>
+        <br>
+        <h2 class="interests">Interests</h2>
         <ul class="music-info">
             <li>My Favorite Bands: {{dataValues.favorite}} </li>
             <li>Genres of Music I enjoy: {{dataValues.genres}} </li>
-            <li>Bands that I have seen in concert: {{dataValues.concert}} </li>        
+            <li>Bands that I have seen in concert: {{dataValues.concert}} </li>
         </ul>
     </div>
     {{/each}}
 </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/members.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/members.js"></script>
