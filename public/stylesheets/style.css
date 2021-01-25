@@ -39,6 +39,10 @@ ul.music-info{
   color: white;
 }
 
+a#logout.btn.btn-light{
+  right:-5px;
+  position: absolute;
+}
 /* moving background */
 
 @keyframes move_wave {
