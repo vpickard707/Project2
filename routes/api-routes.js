@@ -11,7 +11,7 @@ module.exports = function(app) {
     res.json({
       username: req.user.username,
       email: req.user.email,
-      id: req.user.id
+      id: req.user.id,
     });
   });
 
@@ -22,12 +22,12 @@ module.exports = function(app) {
     db.User.create({
       username: req.body.username,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
     })
       .then(() => {
         res.redirect(307, "/api/login");
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(401).json(err);
       });
   });
@@ -49,77 +49,88 @@ module.exports = function(app) {
       res.json({
         username: req.body.username,
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
       });
     }
   });
   // GET route for getting all of the posts
   app.get("/api/posts/", (req, res) => {
-    db.Post.findAll({})
-        .then((dbPost) => {
-        res.json(dbPost);
-        });
+    db.Post.findAll({}).then((dbPost) => {
+      res.json(dbPost);
     });
-    
+  });
+
   // Get route for returning posts of a specific category
   app.get("/api/posts/category/:category", (req, res) => {
     db.Post.findAll({
-        where: {
-        category: req.params.category
-        }
-    })
-        .then((dbPost) => {
-        res.json(dbPost);
-        });
+      where: {
+        category: req.params.category,
+      },
+    }).then((dbPost) => {
+      res.json(dbPost);
     });
-  
+  });
+
   // Get route for retrieving a single post
   app.get("/api/posts/:id", (req, res) => {
     db.Post.findOne({
-        where: {
-        id: req.params.id
-        }
-    })
-        .then((dbPost) => {
-        res.json(dbPost);
-        });
+      where: {
+        id: req.params.id,
+      },
+    }).then((dbPost) => {
+      res.json(dbPost);
     });
-  
+  });
+
   // POST route for saving a new post
   app.post("/api/posts", (req, res) => {
     console.log(req.body);
     db.Post.create({
-        title: req.body.title,
-        body: req.body.body,
-        category: req.body.category
-    })
-        .then((dbPost) => {
-        res.json(dbPost);
-        });
+      title: req.body.title,
+      body: req.body.body,
+      category: req.body.category,
+    }).then((dbPost) => {
+      res.json(dbPost);
     });
-  
+  });
+
   // DELETE route for deleting posts
   app.delete("/api/posts/:id", (req, res) => {
     db.Post.destroy({
-        where: {
-        id: req.params.id
-        }
-    })
-        .then((dbPost) => {
-        res.json(dbPost);
-        });
+      where: {
+        id: req.params.id,
+      },
+    }).then((dbPost) => {
+      res.json(dbPost);
     });
-  
+  });
+
   // PUT route for updating posts
   app.put("/api/posts", (req, res) => {
-    db.Post.update(req.body,
-        {
-        where: {
-            id: req.body.id
-        }
-        })
-        .then((dbPost) => {
-        res.json(dbPost);
-        });
+    db.Post.update(req.body, {
+      where: {
+        id: req.body.id,
+      },
+    }).then((dbPost) => {
+      res.json(dbPost);
     });
+  });
+
+  app.post("/api/search", (req, res) => {
+    const spotify = new Spotify({
+      id: client_id,
+      secret: client_secret,
+    });
+    // change here
+    spotify.search({ type: "track", query: req.body.song }, function(
+      err,
+      data
+    ) {
+      if (err) {
+        return console.log("Error occurred: " + err);
+      }
+      // change here
+      res.render("whatever", data.tracks);
+    });
+  });
 };
