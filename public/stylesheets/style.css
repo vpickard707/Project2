@@ -39,6 +39,27 @@ ul.music-info {
   color: white;
 }
 
+a#logout.btn.btn-light{
+  right:-5px;
+  position: absolute;
+}
+
+div.card{
+  background-color: rgb(241, 239, 235);
+}
+div.card-header{
+  background-color: rgb(183, 85, 212);
+}
+
+button.delete.btn.btn-danger{
+right:20px;
+position:absolute;
+}
+
+button.edit.btn.btn-default{
+  right: 60px;
+  position: absolute;
+}
 /* moving background */
 
 @keyframes move_wave {
