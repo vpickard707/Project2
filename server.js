@@ -1,8 +1,6 @@
 // Requiring necessary npm packages
 require("dotenv").config();
 const Spotify = require("node-spotify-api");
-// const axios = require("axios");
-//const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");

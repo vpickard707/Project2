@@ -1,6 +1,8 @@
 // Requiring our models and passport as we've configured it
+require("dotenv").config();
 const db = require("../models");
 const passport = require("../config/passport");
+const Spotify = require("node-spotify-api");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -118,19 +120,20 @@ module.exports = function(app) {
 
   app.post("/api/search", (req, res) => {
     const spotify = new Spotify({
-      id: client_id,
-      secret: client_secret,
+      id: process.env.CLIENT_ID,
+      secret: process.env.CLIENT_SECRET,
     });
-    // change here
-    spotify.search({ type: "track", query: req.body.song }, function(
+
+    // // change here
+    spotify.search({ type: "track", query: "All the Small Things" }, function(
       err,
       data
     ) {
       if (err) {
-        return console.log("Error occurred: " + err);
+        console.log("Error occurred: " + err);
+      } else {
+        res.render("spotify", data.tracks);
       }
-      // change here
-      res.render("whatever", data.tracks);
     });
   });
 };
