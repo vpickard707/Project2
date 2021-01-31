@@ -1,9 +1,13 @@
+/* eslint-disable camelcase */
 // Requiring necessary npm packages
 require("dotenv").config();
 const Spotify = require("node-spotify-api");
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
+const client_id = process.env.CLIENT_ID; // Your client id
+const client_secret = process.env.CLIENT_SECRET; // Your secret
+const redirect_uri = "REDIRECT_URI"; // Your redirect uri
 
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
@@ -13,26 +17,21 @@ const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
 //Setting up spotify api
-var client_id = process.env.CLIENT_ID; // Your client id
-var client_secret = process.env.CLIENT_SECRET; // Your secret
-var redirect_uri = "REDIRECT_URI"; // Your redirect uri
-console.log(client_id, client_secret);
-
 const spotify = new Spotify({
   id: client_id,
   secret: client_secret,
 });
 
-spotify.search({ type: "track", query: "All the Small Things" }, function(
-  err,
-  data
-) {
-  if (err) {
-    return console.log("Error occurred: " + err);
+spotify.search(
+  { type: "track", query: "All the Small Things" },
+  (err, data) => {
+    if (err) {
+      console.log("Error occurred: " + err);
+    } else {
+      res.render("spotify", data.tracks);
+    }
   }
-
-  console.log(data.tracks.items);
-});
+);
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();

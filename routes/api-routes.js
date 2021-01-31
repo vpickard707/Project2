@@ -86,7 +86,6 @@ module.exports = function(app) {
 
   // POST route for saving a new post
   app.post("/api/posts", (req, res) => {
-    console.log(req.body);
     db.Post.create({
       title: req.body.title,
       body: req.body.body,
@@ -125,15 +124,15 @@ module.exports = function(app) {
     });
 
     // // change here
-    spotify.search({ type: "track", query: "All the Small Things" }, function(
-      err,
-      data
-    ) {
-      if (err) {
-        console.log("Error occurred: " + err);
-      } else {
-        res.render("spotify", data.tracks);
+    spotify.search(
+      { type: "track", query: "All the Small Things" },
+      (err, data) => {
+        if (err) {
+          console.log("Error occurred: " + err);
+        } else {
+          res.render("spotify", data.tracks);
+        }
       }
-    });
+    );
   });
 };
