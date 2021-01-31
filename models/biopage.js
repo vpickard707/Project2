@@ -1,4 +1,3 @@
-
 module.exports = (sequelize, DataTypes) => {
     const Biopage = sequelize.define("Biopage", {
         favorite: {

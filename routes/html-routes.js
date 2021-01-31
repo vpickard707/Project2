@@ -27,7 +27,6 @@ module.exports = function(app) {
         userId: req.user.id,
       },
     }).then((biopage) => {
-      console.log(biopage);
       res.render("members", { user: req.user, biopage });
     });
   });
